@@ -2,6 +2,7 @@ package dao;
 
 import static com.smc.db.JdbcUtil.*;
 
+
 import java.sql.*;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,9 @@ public class ChicDAO
 			pstmt.setString(1, chic.getName());
 			pstmt.setInt(2, chic.getPrice());
 			insertCount = pstmt.executeUpdate();
+		}catch(SQLIntegrityConstraintViolationException e){
+			System.out.println("이미 같은 정보가 있습니다.");
+			return -1;
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {close(pstmt);}
