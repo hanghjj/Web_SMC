@@ -21,16 +21,19 @@
  	<tr>
  		<td>이름</td>
  		<td>가격</td>
+ 		
  	</tr>
  	<%
  		if(clist!=null){
  			for(int i=0; i<clist.size();i++){
  		
  	%>
- 	<tr>
- 		<td><%=clist.get(i).getName() %></td>
+ 	<form action = "/test/CReview.chic"><tr> 
+ 		<td><% String name = clist.get(i).getName(); out.println(name); %></td>
  		<td><%=clist.get(i).getPrice() %></td>
+ 		<td><button type = "submit" onclick = "location.href ='CReview.chic'" name = "name" value = "<%=name%>" formmethod = "get">리뷰 쓰기</button></td>
  	</tr>
+ 	</form>
  	<%
  		}
  	} else{

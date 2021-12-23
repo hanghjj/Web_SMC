@@ -3,6 +3,7 @@ package dao;
 import static com.smc.db.JdbcUtil.*;
 
 
+
 import java.sql.*;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,7 +57,7 @@ public class ChicDAO
 		String Sql = "";
 		
 		try {
-			Sql = "INSERT INTO chicken(name,price) VALUES(?,?)";
+			Sql = "INSERT INTO Chicken(name,price) VALUES(?,?)";
 			pstmt = con.prepareStatement(Sql);
 			pstmt.setString(1, chic.getName());
 			pstmt.setInt(2, chic.getPrice());

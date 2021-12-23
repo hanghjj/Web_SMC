@@ -5,5 +5,5 @@ CREATE TABLE Chicken(
 	price integer not null
 );
 
-insert into Chicken(name, price) values('푸라닭 고추마요 치킨',19000);
+insert into Chicken(name, price) values('후라이드 치킨',12000);
 Select * from chicken;
