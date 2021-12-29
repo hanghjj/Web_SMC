@@ -1,9 +1,11 @@
 package dao;
 import static com.smc.db.JdbcUtil.*;
 
+import java.util.ArrayList;
 import java.sql.*;
 import org.springframework.stereotype.Repository;
 
+import vo.Chicken;
 import vo.Review;
 
 @Repository
@@ -43,4 +45,26 @@ public class RevDAO {
 		
 		return insertCount;
 	}
+	
+	public ArrayList<Review> getReviewList(){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Review> Rlist = null;
+		try {
+			pstmt = con.prepareStatement("SELECT * FROM review");
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Rlist = new ArrayList<>();
+				do {
+					Rlist.add(new Review(rs.getString("name"),rs.getInt("grade"),rs.getString("text")));
+				} while(rs.next());
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}finally {close(rs); close(pstmt);}
+		
+		return Rlist;
+	}
+	
+	
 }

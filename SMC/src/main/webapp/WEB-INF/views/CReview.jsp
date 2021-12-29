@@ -10,7 +10,12 @@
 <title>JSP Title</title>
 </head>
 <body>
-		
+<header>
+			<img src = "resources/img/SMClogo.png" width = "50" height = "50">
+			<a href = "/test"><img src = "resources/img/logo2.png" width = "140" height = "50"></a>
+			<a href= "CList.chic"><img src = "resources/img/list.png" width = "120" height = "50"></a>
+			<a href= "CInsert.chic"><img src = "resources/img/regist.png" width = "120" height = "50"></a>
+</header>		
 	
 
  <%
@@ -37,6 +42,11 @@
  	}
  	%>
  <button class = "btn" type = "submit">등록</button>
+
+ </form>
+ <form class = "Rev-list" action = "/test/Rlist.chic" method = "get">
+ 	<input type = "hidden" name = "name" value ="<%=name %>" >
+ 	<button class = "btn" type = "submit">리뷰 목록으로</button>
  </form>
 </body>
 </html>

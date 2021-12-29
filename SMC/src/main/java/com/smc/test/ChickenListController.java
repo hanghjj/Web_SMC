@@ -31,7 +31,6 @@ public class ChickenListController {
 				e.printStackTrace();
 			}
 			ModelAndView mav = new ModelAndView();
-			mav.addObject("clist",temp);
 			mav.setViewName("/CList");
 			return mav;
 	}

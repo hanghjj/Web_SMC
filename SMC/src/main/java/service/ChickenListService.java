@@ -1,6 +1,7 @@
 package service;
 
 import static com.smc.db.JdbcUtil.*;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -18,6 +19,8 @@ public class ChickenListService {
 		chicDAO = ChicDAO.getInstance();
 		Connection con = getConnection();
 		chicDAO.setConnection(con);
-		return chicDAO.selectCList();
+		ArrayList<Chicken> temp = chicDAO.selectCList();
+		close(con);
+		return temp;
 	}
 }

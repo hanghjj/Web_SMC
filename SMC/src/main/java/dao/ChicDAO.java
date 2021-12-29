@@ -2,11 +2,8 @@ package dao;
 
 import static com.smc.db.JdbcUtil.*;
 
-
-
 import java.sql.*;
 import java.util.ArrayList;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
@@ -18,10 +15,6 @@ public class ChicDAO
 	Connection con;
 	private static ChicDAO cDAO;
 	
-	@Autowired
-	public ChicDAO(){
-		
-	}
 	
 	public void setConnection(Connection con) { this.con = con;}
 	

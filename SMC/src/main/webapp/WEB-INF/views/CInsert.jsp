@@ -11,6 +11,12 @@
 <title>치킨 정보 등록</title>
 </head>
 <body>
+<header>
+			<img src = "resources/img/SMClogo.png" width = "50" height = "50">
+			<a href = "/test"><img src = "resources/img/logo2.png" width = "140" height = "50"></a>
+			<a href= "CList.chic"><img src = "resources/img/list.png" width = "120" height = "50"></a>
+			<a href= "CInsert.chic"><img src = "resources/img/regist.png" width = "120" height = "50"></a>
+</header>
 <form class = "Chic-regist" action = "/test/CInsert.chic" method = "get">
  	이름 : <input type="text" name = "name" required = "required"><br>
  	가격 : <input type="text" name = "price" required = "required"><br>

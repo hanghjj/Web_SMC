@@ -1,11 +1,12 @@
 package service;
 
 import static com.smc.db.JdbcUtil.*;
-
+import org.springframework.stereotype.Service;
 import java.sql.Connection;
 import vo.Review;
 import dao.RevDAO;
 
+@Service
 public class ReviewInsertService {
 	public RevDAO  rDAO = new RevDAO();
 	

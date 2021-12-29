@@ -15,3 +15,4 @@ insert into review(code,name,grade,text) values(1,'푸라닭 고추마요 치킨
 update review set code = (select code from chicken where review.name = chicken.name);
 delete from review;
 select * from review;
+select chicken.name,review.grade, review.text from review,chicken where chicken.name = review.name order by chicken.code;
