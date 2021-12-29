@@ -1,4 +1,5 @@
 # Web_SMC
+# 세상의 모든 치킨 _SMC
 JAVA : 1.8 
 
 JDK : 11
