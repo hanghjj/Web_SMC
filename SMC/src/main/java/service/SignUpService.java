@@ -1,20 +1,21 @@
 package service;
 import static com.smc.db.JdbcUtil.*;
 
+
 import org.springframework.stereotype.Service;
 import java.sql.Connection;
-import vo.Chicken;
-import dao.ChicDAO;
+import vo.User;
+import dao.UserDAO;
 
 @Service
-public class ChickenInsertService {
-	public ChicDAO chicDAO = new ChicDAO();
-
-	public int insertChicken(Chicken chic) {
-		chicDAO = ChicDAO.getInstance();
+public class SignUpService {
+	public UserDAO uDAO;
+	
+	public int signup(User user) {
+		uDAO = UserDAO.getInstance();
 		Connection con = getConnection();
-		chicDAO.setConnection(con);
-		int cnt = chicDAO.insertChicken(chic);
+		uDAO.setConnection(con);
+		int cnt = uDAO.sign_up(user);
 		int isSuccess = 0;
 		if(cnt>0) {commit(con); isSuccess = 1;}
 		else if(cnt==-1) {return -1;}

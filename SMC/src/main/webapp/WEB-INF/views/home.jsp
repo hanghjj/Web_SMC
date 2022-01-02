@@ -11,6 +11,8 @@
 			<a href = "/test"><img src = "resources/img/logo2.png" width = "140" height = "50"></a>
 			<a href= "CList.chic"><img src = "resources/img/list.png" width = "120" height = "50"></a>
 			<a href= "CInsert.chic"><img src = "resources/img/regist.png" width = "120" height = "50"></a>
+			<div style = "width: 120px; height: 50px; float: right;" ><a href= "SignUp.chic">회원가입</a></div>
+			<div style = "width: 120px; height: 50px; float: right;" ><a href= "SignIn.chic">로그인</a></div>
 	</header>
 	
 </body>
