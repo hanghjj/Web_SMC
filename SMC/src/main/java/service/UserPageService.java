@@ -9,19 +9,15 @@ import vo.User;
 import dao.UserDAO;
 
 @Service
-public class SignUpService {
+public class UserPageService {
 	public UserDAO uDAO;
 	
-	public int signup(User user) {
+	public User getUinfromation(String id) {
 		uDAO = UserDAO.getInstance();
 		Connection con = getConnection();
 		uDAO.setConnection(con);
-		int cnt = uDAO.sign_up(user);
-		int isSuccess = 0;
-		if(cnt>0) {commit(con); isSuccess = 1;}
-		else if(cnt==-1) {return -1;}
-		else rollback(con);
+		User u = uDAO.getInformation(id);
 		close(con);
-		return isSuccess;
+		return u;
 	}
 }

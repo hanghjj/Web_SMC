@@ -1,11 +1,11 @@
 package dao;
 import static com.smc.db.JdbcUtil.*;
 
+
 import java.util.ArrayList;
 import java.sql.*;
 import org.springframework.stereotype.Repository;
 
-import vo.Chicken;
 import vo.Review;
 
 @Repository

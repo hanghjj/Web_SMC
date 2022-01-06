@@ -69,4 +69,24 @@ public class UserDAO {
 		
 		return true;
 	}
+	
+	public User getInformation(String id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = con.prepareStatement("SELECT id,password,name FROM users where id = ?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				return new User(rs.getString("id"),rs.getString("password"),rs.getString("name"));
+			}
+			else {System.out.println("등록된 아이디가 없습니다.");
+				return new User(rs.getString("0000"),rs.getString("0000"),rs.getString("0000"));
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}finally {close(rs); close(pstmt);}
+		
+		return new User("0000","0000","0000");
+	}
 }

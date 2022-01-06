@@ -8,10 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class UserSignInController {
-	@RequestMapping("/SignIn.chic")
+public class LogOutController {
+	@RequestMapping("/logout.chic")
 	public String view(HttpServletRequest request ,Model model) {
-		String result = "SignIn";
+		String result = "logout";
 			return result;
 	}
 }
