@@ -20,6 +20,14 @@ public class ReviewListService {
 		close(con);
 		return temp;
 	}
+	public ArrayList<Review> getRlist(String id) {
+		rDAO = RevDAO.getInstance();
+		Connection con = getConnection();
+		rDAO.setConnection(con);
+		ArrayList<Review> temp =  rDAO.getUserReview(id);
+		close(con);
+		return temp;
+	}
 	
 	public ArrayList<Review> getspecificRlist(ArrayList<Review> rlist, String name){
 		ArrayList<Review> temp = new ArrayList<Review>();

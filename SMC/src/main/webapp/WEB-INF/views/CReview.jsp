@@ -20,10 +20,11 @@
 
  <%
  	String name = request.getParameter("name");
+ 	String id = (String)session.getAttribute("loggedID");
  %>
  <form class = "Rev-regist" action = "/test/CReview.chic" method = "get">
  <h3><%=name %> 리뷰 쓰기</h3>
- 이름 : <input type = "text" name = "name" value ="<%=name %>" readonly>
+ 이름 : <input type = "text" name = "name" value ="<%=name %>" readonly>  작성자 : <input type = "text" name = "reviewer" value ="<%=id %>" readonly>
  평점 : <input type="number" min="0" max="5" step = 1 name ="grade" required = "required"><br>
  리뷰 : <textarea name = "text" cols="50" rows="10"></textarea>
  
@@ -32,7 +33,7 @@
 	String grade = request.getParameter("grade");
  	String review = request.getParameter("text");
  	if(grade!=null&&name!=null){
- 		Review rev = new Review(name,Integer.parseInt(grade),review);
+ 		Review rev = new Review(name,Integer.parseInt(grade),review,id);
  		ReviewInsertService ris = new ReviewInsertService();
  		int iS = ris.insertRev(rev);
  	 	

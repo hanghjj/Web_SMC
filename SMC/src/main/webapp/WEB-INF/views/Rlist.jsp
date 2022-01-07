@@ -31,6 +31,7 @@
  		<td>이름</td>
  		<td>평점</td>
  		<td>내용</td>
+ 		<td>작성자</td>
  		
  	</tr>
  	<%
@@ -42,6 +43,7 @@
  		<td><% String names = rlist.get(i).getName(); out.println(name); %></td>
  		<td><%=rlist.get(i).getGrade() %></td>
  		<td><%=rlist.get(i).getText() %></td>
+ 		<td><%=rlist.get(i).getReviewer() %></td>
  	</tr>
  	<%
  		}

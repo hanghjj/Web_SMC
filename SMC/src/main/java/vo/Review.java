@@ -5,7 +5,14 @@ public class Review {
 	private String name;
 	private int grade;
 	private String text;
-	public Review(String name, int grade, String text) {this.name = name; this.grade=grade; this.text = text;}
+	private String reviewer;
+	public String getReviewer() {
+		return reviewer;
+	}
+	public void setReviewer(String reviewer) {
+		this.reviewer = reviewer;
+	}
+	public Review(String name, int grade, String text,String reviewer) {this.name = name; this.grade=grade; this.text = text; this.reviewer = reviewer;}
 	public int getCode() {
 		return code;
 	}

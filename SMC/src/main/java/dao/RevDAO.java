@@ -27,12 +27,13 @@ public class RevDAO {
 		String Sql = "";
 		String Sql2 = "update review set code = (select code from chicken where review.name = chicken.name)";
 		try {
-			Sql = "insert into review(code,name,grade,text) values(?,?,?,?)";
+			Sql = "insert into review(code,name,grade,text,reviewer) values(?,?,?,?,?)";
 			pstmt = con.prepareStatement(Sql);
 			pstmt.setInt(1,1);
 			pstmt.setString(2, rev.getName());
 			pstmt.setInt(3,rev.getGrade());
 			pstmt.setString(4, rev.getText());
+			pstmt.setString(5, rev.getReviewer());
 			insertCount = pstmt.executeUpdate();
 			pstmt2 = con.prepareStatement(Sql2);
 			insertCount+=pstmt2.executeUpdate();
@@ -56,7 +57,7 @@ public class RevDAO {
 			if(rs.next()) {
 				Rlist = new ArrayList<>();
 				do {
-					Rlist.add(new Review(rs.getString("name"),rs.getInt("grade"),rs.getString("text")));
+					Rlist.add(new Review(rs.getString("name"),rs.getInt("grade"),rs.getString("text"),rs.getString("reviewer")));
 				} while(rs.next());
 			}
 		} catch(SQLException e) {
@@ -65,6 +66,25 @@ public class RevDAO {
 		
 		return Rlist;
 	}
-	
+	public ArrayList<Review> getUserReview(String id){
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<Review> Rlist = null;
+		try {
+			pstmt = con.prepareStatement("SELECT * FROM review where review.reviewer = ?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				Rlist = new ArrayList<>();
+				do {
+					Rlist.add(new Review(rs.getString("name"),rs.getInt("grade"),rs.getString("text"),rs.getString("reviewer")));
+				} while(rs.next());
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}finally {close(rs); close(pstmt);}
+		
+		return Rlist;
+	}
 	
 }
